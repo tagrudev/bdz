@@ -1,7 +1,7 @@
 require "bdz/version"
 
 module Bdz
-  def self.ipsum
-  	"Lorum"
-  end
+  ROOT_URL = "http://razpisanie.bdz.bg/SearchServlet"
 end
+
+require "bdz/client"

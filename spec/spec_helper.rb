@@ -9,6 +9,5 @@ require 'helpers/webmock_helper'
 
 RSpec.configure do |config|
   config.before(:each) do
-    # Do nothing
   end
 end
