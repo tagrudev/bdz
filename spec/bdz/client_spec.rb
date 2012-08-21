@@ -12,4 +12,8 @@ describe Bdz::Client do
     end
   end
 
+  describe '#search' do 
+    it 'should return content' do 
+    end
+  end
 end
