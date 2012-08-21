@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Todor Grudev"]
   gem.email         = ["tagrudev@gmail.com"]
   gem.description   = %q{BDZ query maker}
-  gem.summary       = %q{Gives a routes for the Bulgarian railways}
+  gem.summary       = %q{The Bulgarian State Railways schedule retriever}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
@@ -14,7 +14,9 @@ Gem::Specification.new do |gem|
   gem.name          = "bdz"
   gem.require_paths = ["lib"]
   gem.version       = Bdz::VERSION
-
+ 
+  gem.add_runtime_dependency "faraday"
+  gem.add_runtime_dependency "nokogiri"
 
   gem.add_development_dependency "pry"
   gem.add_development_dependency "rake"
