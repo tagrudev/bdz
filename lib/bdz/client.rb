@@ -16,7 +16,10 @@ module Bdz
     # client.search({:from_station => "Пловдив", :to_station => "София", :date => "20/08/2012"})
     def search(params = {})
       content = get(params)
+      parser = Bdz::Parser::Schedule.new content
+      parser.parse
     end
+
     private
     def get(params = {})
       @faraday_client.post do |req| 
