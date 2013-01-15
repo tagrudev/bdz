@@ -6,7 +6,7 @@ describe Bdz::Train do
 
   describe 'Train object methods and instance_variables' do
     it 'should have a method serialize to json that returns intance vars to json' do
-      train.as_json.should ==  "{\"@id\":\"1\",\"@leaves\":\"00:00\"}"
+      train.as_json.should ==  "{\"id\":\"1\",\"leaves\":\"00:00\"}"
     end
   end
 end

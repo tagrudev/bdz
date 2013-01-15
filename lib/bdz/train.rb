@@ -17,7 +17,7 @@ module Bdz
     def as_json
       hash = {}
       self.instance_variables.each do |var|
-        hash[var.gsub("@", "")] = self.instance_variable_get var
+        hash[var.to_s.gsub("@", "")] = self.instance_variable_get var
       end
       hash.to_json
     end
