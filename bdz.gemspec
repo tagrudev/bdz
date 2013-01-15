@@ -14,9 +14,10 @@ Gem::Specification.new do |gem|
   gem.name          = "bdz"
   gem.require_paths = ["lib"]
   gem.version       = Bdz::VERSION
- 
+
   gem.add_runtime_dependency "faraday"
   gem.add_runtime_dependency "nokogiri"
+  gem.add_runtime_dependency "json"
 
   gem.add_development_dependency "pry"
   gem.add_development_dependency "rake"

@@ -1,4 +1,5 @@
 require "nokogiri"
+require "json"
 require "bdz/version"
 
 module Bdz
