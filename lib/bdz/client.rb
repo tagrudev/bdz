@@ -8,24 +8,27 @@ module Bdz
     def initialize
       @params = {}
       @faraday_client = Faraday.new(:url => Bdz::ROOT_URL) do |faraday|
-        faraday.request  :url_encoded             # form-encode POST params
         faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
     end
 
-    # client.search({ot: "Plovdiv", do: "Sofia"})
     def search(params = {})
       content = get(params)
       parser = Bdz::Parser::Schedule.new content
       parser.parse
+      binding.pry
     end
 
     private
     def get(params = {})
       @faraday_client.post do |req|
-        req.params = params
+        req.params = build_params(params)
       end
+    end
+
+    def build_params(params = {})
+      @params = params.merge({submit: 'ТЪРСЕНЕ'})
     end
   end
 end

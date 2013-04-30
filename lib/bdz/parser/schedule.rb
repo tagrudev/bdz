@@ -11,12 +11,12 @@ module Bdz
           end
 
           def parse_content
-            @content.css('body').collect do |train|
+            @content.css('tbody').take(@content.css('tbody').size - 1).collect do |train|
               t = Bdz::Train.new(
-                                 :id => train.css('table tr td a')[0].text,
-                                 :type => train.css('table tr td')[1].text,
-                                 :leaves => train.css('table tr td')[2].text,
-                                 :arrives => train.css('table tr td')[3].text,
+                                 :id => train.css('tr td a')[0].text,
+                                 :type => train.css('tr td')[1].text,
+                                 :leaves => train.css('tr td')[2].text,
+                                 :arrives => train.css('tr td')[3].text,
                                  )
             end
           end
