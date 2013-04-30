@@ -4,7 +4,6 @@ module Bdz
     attr_reader :leaves
     attr_reader :arrives
     attr_reader :type
-    attr_reader :docks
     def initialize (params)
       return if params.nil?
 

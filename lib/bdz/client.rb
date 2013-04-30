@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'faraday'
 module Bdz
   class Client
@@ -13,7 +14,7 @@ module Bdz
       end
     end
 
-    # client.search({:from_station => "Пловдив", :to_station => "София", :date => "20/08/2012"})
+    # client.search({ot: "Plovdiv", do: "Sofia"})
     def search(params = {})
       content = get(params)
       parser = Bdz::Parser::Schedule.new content
@@ -22,14 +23,9 @@ module Bdz
 
     private
     def get(params = {})
-      @faraday_client.post do |req| 
-        req.params = build_params(params)
+      @faraday_client.post do |req|
+        req.params = params
       end
-    end
-
-    def build_params(params = {})
-      @params = params.merge({ :action => 'listOptions', :dep_arr => '1', :time_from => '00:00', :time_to => '24:00', :all_cats => 'checked', 
-        :cardId => '30', :sort_by => '0'})
     end
   end
 end
