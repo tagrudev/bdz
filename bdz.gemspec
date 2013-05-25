@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Bdz::VERSION
 
-  gem.add_runtime_dependency "faraday"
+  gem.add_runtime_dependency "nestful"
   gem.add_runtime_dependency "nokogiri"
   gem.add_runtime_dependency "json"
 

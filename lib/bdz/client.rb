@@ -1,35 +1,23 @@
 # -*- coding: utf-8 -*-
-require 'faraday'
+require 'nestful'
 module Bdz
   class Client
     attr_reader :params
     attr_reader :faraday_client
 
-    def initialize
-      @params = {}
-      @faraday_client = Faraday.new(:url => Bdz::ROOT_URL) do |faraday|
-        faraday.request  :url_encoded             # form-encode POST params
-        faraday.response :logger                  # log requests to STDOUT
-        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-      end
-    end
-
     def search(params = {})
-      content = get(params)
+      content = Nestful.post Bdz::ROOT_URL, get(params)
       parser = Bdz::Parser::Schedule.new content
       parser.parse
-      binding.pry
     end
 
     private
     def get(params = {})
-      @faraday_client.post do |req|
-        req.params = build_params(params)
-      end
+      build_params(params)
     end
 
     def build_params(params = {})
-      @params = params.merge({submit: 'ТЪРСЕНЕ'})
+      @params = params.merge({:submit => 'ТЪРСЕНЕ'})
     end
   end
 end
