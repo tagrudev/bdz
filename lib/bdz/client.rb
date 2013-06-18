@@ -3,7 +3,7 @@ require 'nestful'
 module Bdz
   class Client
     attr_reader :params
-    attr_reader :faraday_client
+    attr_accessor :price_url
 
     def search(params = {})
       content = Nestful.post Bdz::ROOT_URL, get(params)

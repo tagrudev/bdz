@@ -1,10 +1,9 @@
 module Bdz
-  class Train
+  class Ticket
     include Serializable
     attr_reader :id
-    attr_reader :leaves
-    attr_reader :arrives
     attr_reader :type
+    attr_reader :price
     def initialize (params)
       return if params.nil?
       params.each do |key, value|

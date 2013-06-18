@@ -7,6 +7,8 @@ module Bdz
   ROOT_URL = "http://bdz.bg/m/commit.php"
 end
 
+require "bdz/serializable"
 require "bdz/client"
 require "bdz/parser"
 require "bdz/train"
+require "bdz/ticket"

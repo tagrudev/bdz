@@ -1,6 +1,8 @@
 module Bdz
   module Parser
     class Schedule
+      attr_accessor :price_url
+
       def initialize(response)
         @response = response
       end
@@ -20,6 +22,7 @@ module Bdz
                    :arrives => train.css('td')[3].text,
                  )
           end
+          # @price_url = @content.css('tbody tr').take(@content.css('tbody tr').size).css('td a')[0]
         rescue
           return []
         end
